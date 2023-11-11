@@ -1,0 +1,95 @@
+#maindiv{
+    position: relative;
+    height:90px;
+    margin-bottom: 10px;
+}
+#ttitle{
+    position: absolute;
+    width:120%;
+    height:auto;
+    overflow-x:scroll;
+    white-space: nowrap;
+    top: 27.5%;
+    color:#6d6564;
+}
+#tyear{
+    position: absolute;
+    top:70%;
+    color:#6d6564;
+}
+#tgenre{
+    position: absolute;
+    top:70%;
+    left:40%;
+    color:#6d6564;
+}
+#trating{
+    position: absolute;
+    top:70%;
+    left:70%;
+    color:#6d6564;
+}
+#imgdiv{
+    position: relative;
+    width:100px;
+    height: 85px;
+    left:80px;
+    top: 0px;
+}
+#timg{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#hruler{
+    position: absolute;
+    width: 87.5%;
+    border: 1px solid #6d6564;
+    top:105%;
+    left:2%;
+}
+@media  screen and (max-width:1200px) and (min-width:1150px){
+    #maindiv{
+        height: 120px;
+    }
+    #imgdiv{
+        left:60px;
+        height:115px
+    }
+}
+@media  screen and (max-width:1150px) and (min-width:980px){
+    #maindiv{
+        height: 120px;
+    }
+    #ttitle{
+        width:130%;
+    }
+    #imgdiv{
+        left:60px;
+        height:115px
+    }
+}
+@media  screen and (max-width:979px) and (min-width:720px){
+    #maindiv{
+        height: 120px;
+    }
+    #ttitle{
+        width:110%;
+    }
+    #imgdiv{
+        left:20px;
+        height:115px
+    }
+}
+@media  screen and (max-width:719px) and (min-width:500px){
+    #maindiv{
+        height: 120px;
+    }
+    #ttitle{
+        width:190%;
+    }
+    #imgdiv{
+        display: none;
+        height:115px
+    }
+}

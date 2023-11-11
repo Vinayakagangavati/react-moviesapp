@@ -1,0 +1,46 @@
+#footer{
+    width:100vw;
+    height: 350px;
+    margin-top: 30px;
+    position: relative;
+}
+#bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+#fimg{
+ position: absolute;
+ top:10%;
+ width:100px;
+ left:2.5%;
+}
+#main{
+    position: absolute;
+    top:25%;
+    left:2.5%;
+    color: aliceblue;
+    color:#7b8085;
+}
+#footcol1{
+    position: absolute;
+    top:50%;
+    left:1%;
+    color: azure;
+}
+#footcol2{
+    position: absolute;
+    top:50%;
+    left:49%;
+    color: azure;
+}
+.colul li,.colpara{
+    color:#7b8085;
+}
+#ffinal{
+    position: absolute;
+    bottom: 0.5%;
+    left: 30%;
+    color:#7b8085;
+}
