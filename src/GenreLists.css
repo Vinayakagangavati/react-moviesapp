@@ -1,10 +1,12 @@
 #mainsection{
-   background-color: rgb(19, 17, 17);
+   background-color: rgb(0, 0, 0);
 }
 #genrename{
     width:auto;
-    height:45px;
+    height:35px;
     color: #f24a20;
+    font-size: 25px;
+    margin-left: 15px;
 }
 #section{
     overflow-x: scroll;

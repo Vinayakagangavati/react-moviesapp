@@ -1,0 +1,39 @@
+#genresec {
+  margin: 10px 10px 30px 10px;
+}
+#genrebox {
+  display: inline-block;
+  width: 280px;
+  height: 450px;
+  border: 1px solid rgb(248, 241, 241);
+  position: relative;
+  border-radius: 15px;
+  border: 1px solid grey;
+  margin: 10px 10px;
+}
+#genreimg {
+  box-sizing: border-box;
+  width: 265px;
+  height: 400px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+#genretitle {
+  position: absolute;
+  bottom: 1.5%;
+  left: 6%;
+  color: aliceblue;
+}
+#genreyear {
+  position: absolute;
+  bottom: 1.5%;
+  right: 6%;
+  color: aliceblue;
+}
+#genrebox:hover {
+  border: 2px solid #f24a20;
+  z-index: 1;
+  background: linear-gradient(to bottom, #f24a20, grey);
+  color: black;
+}

@@ -23,16 +23,20 @@ function Carousel() {
 
   return (
     <div className="mydiv">
-      <img src={arrimg[current].thumbnail} id="myimg" alt="carimg"/>
-      <button id="prev" onClick={prevfun}>&lt;</button>
-      <button id="next" onClick={nextfun}>&gt;</button>
+      <img src={arrimg[current].thumbnail} id="myimg" alt="carimg" />
+      <button id="prev" onClick={prevfun}>
+        &lt;
+      </button>
+      <button id="next" onClick={nextfun}>
+        &gt;
+      </button>
       <button id="watch">Watch Now</button>
       <button id="add">Add to List</button>
       <p id="title">{arrimg[current].title}</p>
       <p id="year">{arrimg[current].year}</p>
       <p id="genre">{arrimg[current].genres[0]}</p>
       <p id="plot">{arrimg[current].extract}</p>
-    </div> 
+    </div>
   );
 }
 

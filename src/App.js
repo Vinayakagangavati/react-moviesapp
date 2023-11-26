@@ -1,17 +1,30 @@
-import Navbar from "./Navbar.js";
-import CarouselComponent from "./Carousel.js";
-import GenreList from"./GenreLists.js";
-import Foot from "./Foot.js";
+import CarouselComponent from "./CarouselComp/Carousel.js";
+import GenreList from "./GenreLists.js";
 import Subapp from "./Subapp.js";
-function App(){
-    return(
+import { useState } from "react";
+import GenrepageList from "./Genrepagelist.js";
+function App() {
+  const [genrereceive, setgenrereceive] = useState(true);
+  const [genreval, setgenreval] = useState("");
+  const handleClick = (i, genre) => {
+    setgenrereceive(false);
+    setgenreval(genre);
+  };
+
+  return (
+    <>
+      {genrereceive ? (
         <>
-        <Navbar/>
-        <CarouselComponent/>
-        <GenreList/>
-        <Subapp/>
-        <Foot/>
+          <CarouselComponent />
+          <GenreList onClick={handleClick} />
+          <Subapp />
         </>
-    )
+      ) : (
+        <>
+          <GenrepageList genreval={genreval} />
+        </>
+      )}
+    </>
+  );
 }
 export default App;

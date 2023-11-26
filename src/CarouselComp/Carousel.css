@@ -1,0 +1,136 @@
+body {
+  font-family: "Teko", sans-serif;
+}
+.mydiv {
+  display: inline-block;
+  width: 100vw;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+#myimg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  position: absolute;
+}
+#prev,
+#next {
+  font-size: 70px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: rgb(237, 230, 230);
+  cursor: pointer;
+  top: 35%;
+  position: absolute;
+}
+#prev {
+  left: 1%;
+}
+#next {
+  right: 1%;
+}
+#prev:hover,
+#next:hover {
+  color: #f24a20;
+  border: 1px solid transparent;
+}
+#watch,
+#add {
+  width: 100px;
+  border: 1px solid #f24a20;
+  height: 40px;
+  background-color: #f24a20;
+  color: aliceblue;
+  position: absolute;
+  border-radius: 5px;
+}
+
+#watch {
+  top: 85%;
+  left: 5.25%;
+}
+
+#add {
+  top: 85%;
+  left: 15%;
+}
+
+#title {
+  position: absolute;
+  padding: 0 20px 0 20px;
+  width: auto;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 35px;
+  color: #fefefe;
+  top: 55%;
+  left: 4%;
+}
+#year {
+  color: white;
+  font: 25px;
+  position: absolute;
+  top: 65%;
+  left: 5.5%;
+}
+#genre {
+  color: white;
+  font: 25px;
+  position: absolute;
+  top: 65%;
+  left: 9%;
+}
+#plot {
+  color: white;
+  font: 25px;
+  position: absolute;
+  top: 70%;
+  width: 95%;
+  height: 70px;
+  left: 5.5%;
+}
+
+@media screen and (max-width: 1300px) and (min-width: 750px) {
+  #add {
+    top: 90%;
+    left: 25%;
+  }
+  #watch {
+    top: 90%;
+    left: 5.25%;
+  }
+  #title {
+    left: 3.5%;
+  }
+}
+@media screen and (max-width: 760px) and (min-width: 450px) {
+  #title {
+    top: 50%;
+    left: 2%;
+  }
+  #year {
+    top: 57.5%;
+  }
+  #genre {
+    top: 57.5%;
+    left: 12.5%;
+  }
+  #add {
+    top: 90.5%;
+    left: 30%;
+  }
+  #watch {
+    top: 90.5%;
+    left: 5.25%;
+  }
+  #plot {
+    top: 62.5%;
+  }
+  #prev,
+  #next {
+    font-size: 50px;
+  }
+}
