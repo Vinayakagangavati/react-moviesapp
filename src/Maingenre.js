@@ -1,13 +1,13 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import Data from "./DataComp/Data.js";
 import "./Cat.css";
 
 function Maingenre(props) {
   const [hoveredTitle, setHoveredTitle] = useState(null);
-  const filteredData = useMemo(
-    () => Data.filter((val) => val.genres.includes(props.genre)).slice(0, 12),
-    [Data]
-  );
+  const { onsmash } = props;
+  const filteredData = Data.filter((val) =>
+    val.genres.includes(props.genre)
+  ).slice(0, 12);
 
   const handleMouseEnter = (title) => {
     setHoveredTitle(title);
@@ -35,12 +35,16 @@ function Maingenre(props) {
             key={val.title}
             onMouseEnter={() => handleMouseEnter(val.title)}
             onMouseLeave={handleMouseLeave}
+            onClick={(val) => {
+              onsmash(val);
+            }}
           >
             <img src={val.thumbnail} alt="thumbnail" id="containerimg" />
             <img
               src="https://i.pinimg.com/564x/47/48/64/474864b12b9e8e557fd88fb12c0ba0d5.jpg"
               id="videobtn"
               width="100px"
+              alt="altimg"
               style={{
                 visibility: val.title === hoveredTitle ? "visible" : "hidden",
               }}

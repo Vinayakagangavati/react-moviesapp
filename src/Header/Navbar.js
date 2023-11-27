@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import Data from "../DataComp/Data.js";
+import tvdata from "../DataComp/DataTv.js";
 
-function Navbar() {
+function Navbar({ onSmash }) {
   const [headerval, setheaderval] = useState("");
   const [searchval, setsearchval] = useState("");
   const inputRef = useRef(null);
@@ -10,11 +12,33 @@ function Navbar() {
     inputRef.current.focus();
   }
 
+  function searchfun(e) {
+    setsearchval(e.target.value);
+  }
+
+  function newfun() {
+    const inputValue = searchval.trim().toLowerCase();
+
+    const searchData = Data.find(
+      (item) => item.title.toLowerCase() === inputValue
+    );
+    const tvDataItem = tvdata.find(
+      (item) => item.title.toLowerCase() === inputValue
+    );
+    if (searchData) {
+      onSmash(searchData);
+    } else if (tvDataItem) {
+      onSmash(tvDataItem);
+    } else {
+      onSmash("alert");
+    }
+  }
+
   function searchspace() {
     if (headerval !== "d-none") {
       setheaderval("d-none");
     } else {
-      setheaderval("!d-none");
+      setheaderval("");
     }
   }
 
@@ -27,16 +51,22 @@ function Navbar() {
           style={{ height: "52px" }}
           placeholder="Search Here"
           ref={inputRef}
+          value={searchval}
+          onChange={(e) => searchfun(e)}
         />
         <div
-          onClick={handleClick}
+          onClick={() => handleClick()}
           className="btn input-group-text"
           style={{ backgroundColor: "#f24a20" }}
         >
           <button
             type="button"
             className="btn btn-outline-light"
-            onClick={() => setheaderval("")}
+            onClick={() => {
+              setheaderval("");
+              setsearchval("");
+              newfun();
+            }}
             style={{
               backgroundColor: "#f24a20",
               border: "1px solid transparent",
@@ -68,7 +98,7 @@ function Navbar() {
           <ul className="navbar-nav mx-md-auto mx-0">
             <li className="nav-item mx-xxl-5 mx-lg-4 mx-md-4 mx-sm-1">
               <NavLink
-                to="/home"
+                to=""
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "text-danger" : "text-light"}`
                 }
@@ -86,24 +116,16 @@ function Navbar() {
                 Genre
               </NavLink>
             </li>
-            {/* <li className="nav-item mx-xxl-5 mx-lg-4 mx-md-4 mx-sm-1">
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "text-danger" : "text-light"}`
-                }
-              >
-                Country
-              </NavLink>
-            </li>
             <li className="nav-item mx-xxl-5 mx-lg-4 mx-md-4 mx-sm-1">
               <NavLink
+                to="/tvshows"
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "text-danger" : "text-light"}`
                 }
               >
                 TVShows
               </NavLink>
-            </li> */}
+            </li>
             <li className="nav-item mx-xxl-5 mx-lg-4 mx-md-4 mx-sm-1">
               <NavLink
                 to="/topImbd"
@@ -121,12 +143,17 @@ function Navbar() {
               type="search"
               placeholder="Search"
               ref={inputRef}
+              value={searchval}
+              onChange={(e) => searchfun(e)}
             />
             <button
               className="btn d-none d-lg-block text-white"
               style={{ backgroundColor: "#f24a20" }}
               type="button"
-              onClick={handleClick}
+              onClick={() => {
+                handleClick();
+                newfun();
+              }}
             >
               Search
             </button>
@@ -134,10 +161,8 @@ function Navbar() {
           <div
             onClick={searchspace}
             onChange={(e) => {
-              e.preventDefault();
-              setsearchval(e.target.value);
+              searchfun(e);
             }}
-            value={searchval}
             className="btn d-block d-lg-none ms-md-auto ms-5 bg-white"
           >
             <img

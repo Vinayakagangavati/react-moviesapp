@@ -1,0 +1,56 @@
+#watch1,
+#add1 {
+  width: 100px;
+  border: 1px solid #f24a20;
+  height: 40px;
+  background-color: #f24a20;
+  color: aliceblue;
+  position: absolute;
+  border-radius: 5px;
+}
+
+#watch1 {
+  top: 85%;
+  left: 5.25%;
+}
+
+#add1 {
+  top: 85%;
+  left: 15%;
+}
+
+#title {
+  position: absolute;
+  padding: 0 20px 0 20px;
+  width: auto;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 35px;
+  color: #fefefe;
+  top: 55%;
+  left: 4%;
+}
+#year {
+  color: white;
+  font: 25px;
+  position: absolute;
+  top: 65%;
+  left: 5.5%;
+}
+#genre {
+  color: white;
+  font: 25px;
+  position: absolute;
+  top: 65%;
+  left: 9%;
+}
+#summary {
+  color: white;
+  position: absolute;
+  top: 70%;
+  width: 95%;
+  height: 70px;
+  left: 5.5%;
+}

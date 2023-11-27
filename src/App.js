@@ -11,13 +11,16 @@ function App() {
     setgenreval(genre);
   };
 
+  function getfun(val) {
+    console.log(val);
+  }
   return (
     <>
       {genrereceive ? (
         <>
           <CarouselComponent />
           <GenreList onClick={handleClick} />
-          <Subapp />
+          <Subapp onsmash={getfun} />
         </>
       ) : (
         <>

@@ -6,7 +6,7 @@ import data from "./DataComp/Data.js";
 import tvdata from "./DataComp/DataTv.js";
 import "./Subapp.css";
 
-function Subapp() {
+function Subapp({ onsmash }) {
   const [selectedCategory, setSelectedCategory] = useState("movies");
 
   function handleCategoryChange(category) {
@@ -22,8 +22,13 @@ function Subapp() {
               <Maingenre
                 genre="Thriller"
                 genretitle="Crime Thrillers for You..."
+                onsmash={onsmash}
               />
-              <Maingenre genre="Comedy" genretitle="Time to Smile..." />
+              <Maingenre
+                genre="Comedy"
+                genretitle="Time to Smile..."
+                onsmash={onsmash}
+              />
             </article>
           </div>
           <div className="col ms-xl-5 ms-lg-3 ms-1 height-auto">
@@ -62,9 +67,17 @@ function Subapp() {
           </div>
         </div>
       </div>
-      <Maingenre genre="Horror" genretitle="Don't Be Scared..." />
-      <Maingenre genre="Drama" genretitle="Lot's of Drama..." />
-      <TVShows />
+      <Maingenre
+        genre="Horror"
+        genretitle="Don't Be Scared..."
+        onsmash={onsmash}
+      />
+      <Maingenre
+        genre="Drama"
+        genretitle="Lot's of Drama..."
+        onsmash={onsmash}
+      />
+      <TVShows from={"sub"} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import Data from "./DataComp/Data.js";
 import "./Genrepagelist.css";
+import { useNavigate } from "react-router-dom";
 
 function GenrepageList({ genreval }) {
   const [hoveredTitle, setHoveredTitle] = useState(null);
@@ -8,7 +9,6 @@ function GenrepageList({ genreval }) {
     () => Data.filter((val) => val.genres.includes(genreval)).slice(0, 20),
     [genreval]
   );
-  console.log(filteredData);
 
   const handleMouseEnter = (title) => {
     setHoveredTitle(title);
@@ -17,6 +17,10 @@ function GenrepageList({ genreval }) {
   const handleMouseLeave = () => {
     setHoveredTitle(null);
   };
+  const navigate = useNavigate();
+  function navigateHome() {
+    navigate("/genre");
+  }
   return (
     <>
       <p
@@ -30,6 +34,8 @@ function GenrepageList({ genreval }) {
       >
         Let's dive in to {genreval} genre
       </p>
+
+      <button onClick={navigateHome}>Back to Home</button>
       <section id="genresec">
         {filteredData.map((val) => (
           <div

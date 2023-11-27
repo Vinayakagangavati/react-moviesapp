@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import tvdata from "./DataComp/DataTv.js";
 import "./Cat.css";
 
-function TVShows() {
+function TVShows({ from }) {
   const [hoveredTitle, setHoveredTitle] = useState(null);
-  const tvarr = tvdata.slice(0, 15);
+  const tvarr = from === "sub" ? tvdata.slice(0, 15) : tvdata.slice(0, 30);
   const handleMouseEnter = (title) => {
     setHoveredTitle(title);
   };
@@ -16,9 +16,9 @@ function TVShows() {
   return (
     <>
       <p id="catname" className="me-0">
-        TVShows
+        {from === "sub" ? "TVShows" : "Deep Dive into TVShows"}
       </p>
-      <div id="none">
+      <div id={from === "sub" ? "none" : "none1"}>
         {tvarr.map((val) => (
           <div
             id="listcatcontainer"

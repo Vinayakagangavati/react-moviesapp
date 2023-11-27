@@ -10,23 +10,22 @@ import Layout from "./Layout";
 import App from "./App.js";
 import Genre from "./Genre.js";
 import Topimbd from "./Topimbd.js";
+import TVShows from "./TVShows.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="home" element={<App />} />
+      <Route path="" element={<App />} />
       <Route path="genre" element={<Genre />} />
+      <Route path="tvshows" element={<TVShows />} />
       <Route path="topImbd" element={<Topimbd />} />
     </Route>
   )
 );
-
 const root = createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      {/* Include the rest of your application components here */}
-    </RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
