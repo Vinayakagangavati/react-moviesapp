@@ -1,5 +1,6 @@
-import "./Foot.css";
-function Foot() {
+import "./Footer.css";
+import { Link } from "react-router-dom";
+function Footer() {
   return (
     <div id="footer">
       <img
@@ -15,11 +16,12 @@ function Foot() {
       <br />
       <br />
       <div id="main">
-        <section>
+        <section className="text-align">
           Discover the ultimate destination for free movie streaming with
           Movies2Watch! Watch movies online anytime, anywhere, for an unmatched
           cinematic experience.
         </section>
+        <br />
         <div>
           Links: watch anime free online, watch anime free online, free read
           manga onlines
@@ -27,37 +29,38 @@ function Foot() {
       </div>
       <div className="row">
         <div className="col col-6" id="footcol1">
+          <br />
           <p className="colpara">Genre</p>
           <ul className="colul">
             <li>
-              <a href="#">Trending</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">A-Z List</a>
+              <Link to="/genrepage">Genre</Link>
             </li>
             <li>
-              <a href="#">Recently Updated</a>
+              <Link to="/tv">Tvshows</Link>
             </li>
             <li>
-              <a href="#">Most Watched</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
         <div className="col col-6" id="footcol2">
           <p className="colpara">Support</p>
           <ul className="colul">
-            <a
+            <Link
               href="https://www.linkedin.com/in/vinayakagangavati/"
               style={{ textDecoration: "none", color: "#7b8085" }}
             >
               <li>linkedin</li>
-            </a>
-            <a
+            </Link>
+            <Link
               href="mailto:vinayakagvt22@gmail.com"
               style={{ textDecoration: "none", color: "#7b8085" }}
             >
               <li>Mail</li>
-            </a>
+            </Link>
           </ul>
         </div>
       </div>
@@ -68,4 +71,4 @@ function Foot() {
     </div>
   );
 }
-export default Foot;
+export default Footer;

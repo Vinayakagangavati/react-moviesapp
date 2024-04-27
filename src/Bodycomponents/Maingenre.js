@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Data from "./DataComp/Data.js";
-import "./Cat.css";
+import Data from "../DataComp/Data.js";
+import "./Tvshows.css";
+import { useNavigate } from "react-router-dom";
 
-function Maingenre(props) {
+function Maingenre({ genre, genretitle }) {
   const [hoveredTitle, setHoveredTitle] = useState(null);
-  const { onsmash } = props;
-  const filteredData = Data.filter((val) =>
-    val.genres.includes(props.genre)
-  ).slice(0, 12);
-
+  const filteredData = Data.filter((val) => val.genres.includes(genre)).slice(
+    0,
+    12
+  );
+  const navigate = useNavigate();
   const handleMouseEnter = (title) => {
     setHoveredTitle(title);
   };
@@ -17,17 +18,17 @@ function Maingenre(props) {
     setHoveredTitle(null);
   };
 
+  function moviepagefun(title) {
+    const a = title;
+    navigate(`/watch/${a}`);
+  }
   return (
     <>
       <p id="catname" className="me-0">
-        {props.genretitle}
+        {genretitle}
       </p>
       <div
-        id={
-          props.genre === "Horror" || props.genre === "Drama"
-            ? "none"
-            : "listcatsection"
-        }
+        id={genre === "Horror" || genre === "Drama" ? "none" : "listcatsection"}
       >
         {filteredData.map((val) => (
           <div
@@ -35,9 +36,7 @@ function Maingenre(props) {
             key={val.title}
             onMouseEnter={() => handleMouseEnter(val.title)}
             onMouseLeave={handleMouseLeave}
-            onClick={(val) => {
-              onsmash(val);
-            }}
+            onClick={() => moviepagefun(val.title)}
           >
             <img src={val.thumbnail} alt="thumbnail" id="containerimg" />
             <img

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import CarouselData from "./CarouselData";
 import "./Carousel.css";
+import DataCarousel from "../DataComp/Datacarousel";
+import { useNavigate } from "react-router-dom";
 
 function Carousel() {
   const [current, setCurrent] = useState(0);
-  const arrimg = CarouselData;
+  const arrimg = DataCarousel;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,9 +23,19 @@ function Carousel() {
     setCurrent((current + 1) % arrimg.length);
   }
 
+  function moviepagefun() {
+    const a = arrimg[current].title;
+    navigate(`/watch/${a}`);
+  }
+
   return (
     <div className="mydiv">
-      <img src={arrimg[current].thumbnail} id="myimg" alt="carimg" />
+      <img
+        src={arrimg[current].thumbnail}
+        id="myimg"
+        alt="carimg"
+        onClick={moviepagefun}
+      />
       <button id="prev" onClick={prevfun}>
         &lt;
       </button>

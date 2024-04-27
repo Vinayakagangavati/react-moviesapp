@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Maingenre from "./Maingenre.js";
-import TrendingSort from "./TrendingSort.js";
-import TVShows from "./TVShows.js";
-import data from "./DataComp/Data.js";
-import tvdata from "./DataComp/DataTv.js";
-import "./Subapp.css";
+import TrendingSort from "./Trendingsort.js";
+import TVShows from "./Tvshows.js";
+import data from "../DataComp/Data.js";
+import tvdata from "../DataComp/DataTv.js";
+import "./Hometype.css";
 
-function Subapp({ onsmash }) {
+function HomeType() {
   const [selectedCategory, setSelectedCategory] = useState("movies");
 
   function handleCategoryChange(category) {
@@ -22,13 +22,8 @@ function Subapp({ onsmash }) {
               <Maingenre
                 genre="Thriller"
                 genretitle="Crime Thrillers for You..."
-                onsmash={onsmash}
               />
-              <Maingenre
-                genre="Comedy"
-                genretitle="Time to Smile..."
-                onsmash={onsmash}
-              />
+              <Maingenre genre="Comedy" genretitle="Time to Smile..." />
             </article>
           </div>
           <div className="col ms-xl-5 ms-lg-3 ms-1 height-auto">
@@ -67,19 +62,11 @@ function Subapp({ onsmash }) {
           </div>
         </div>
       </div>
-      <Maingenre
-        genre="Horror"
-        genretitle="Don't Be Scared..."
-        onsmash={onsmash}
-      />
-      <Maingenre
-        genre="Drama"
-        genretitle="Lot's of Drama..."
-        onsmash={onsmash}
-      />
-      <TVShows from={"sub"} />
+      <Maingenre genre="Horror" genretitle="Don't Be Scared..." />
+      <Maingenre genre="Drama" genretitle="Lot's of Drama..." />
+      <TVShows />
     </>
   );
 }
 
-export default Subapp;
+export default HomeType;

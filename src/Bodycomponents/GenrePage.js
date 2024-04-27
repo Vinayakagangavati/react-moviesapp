@@ -1,8 +1,8 @@
-import "./GenreLists.css";
-function GenreList({ onClick }) {
-  function genrereceive(i, genre) {
-    onClick(i, genre);
-  }
+import { useNavigate } from "react-router-dom";
+import "./GenrePage.css";
+
+function GenrePage() {
+  const nav = useNavigate();
   let arrgenre = [
     [
       "Comedy",
@@ -38,18 +38,22 @@ function GenreList({ onClick }) {
     ],
   ];
 
+  function genrename(title) {
+    nav(`/genre/${title}`);
+  }
+
   return (
     <main id="mainsection">
       <div className="fs-1" id="genrename">
         Genres
       </div>
-      <section id="section">
+      <section>
         {arrgenre.map((genre, i) => (
           <div
             key={i}
             id="genrelists"
             style={{ backgroundImage: `url(${genre[1]})`, objectFit: "cover" }}
-            onClick={() => genrereceive(i, genre[0])}
+            onClick={() => genrename(genre[0])}
           >
             <p id="genretext">{genre[0]}</p>
           </div>
@@ -58,4 +62,4 @@ function GenreList({ onClick }) {
     </main>
   );
 }
-export default GenreList;
+export default GenrePage;

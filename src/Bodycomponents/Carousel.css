@@ -1,5 +1,6 @@
 body {
   font-family: "Teko", sans-serif;
+  background-color: black;
 }
 .mydiv {
   display: inline-block;
@@ -7,6 +8,7 @@ body {
   height: 500px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 #myimg {
   width: 100vw;

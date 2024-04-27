@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import tvdata from "./DataComp/DataTv.js";
-import "./Cat.css";
+import datatv from "../DataComp/DataTv";
+import "./Tvshows.css";
+import { useNavigate } from "react-router-dom";
 
-function TVShows({ from }) {
+function TVShows() {
   const [hoveredTitle, setHoveredTitle] = useState(null);
-  const tvarr = from === "sub" ? tvdata.slice(0, 15) : tvdata.slice(0, 30);
+  const tvarr = datatv;
+  const navigate = useNavigate();
   const handleMouseEnter = (title) => {
     setHoveredTitle(title);
   };
@@ -13,12 +15,18 @@ function TVShows({ from }) {
     setHoveredTitle(null);
   };
 
+  function moviepagefun(title) {
+    console.log("Hi");
+    const a = title;
+    navigate(`/watch/${a}`);
+  }
+
   return (
     <>
       <p id="catname" className="me-0">
-        {from === "sub" ? "TVShows" : "Deep Dive into TVShows"}
+        Deep Dive into TVShows
       </p>
-      <div id={from === "sub" ? "none" : "none1"}>
+      <div id="none1">
         {tvarr.map((val) => (
           <div
             id="listcatcontainer"
@@ -26,7 +34,12 @@ function TVShows({ from }) {
             onMouseEnter={() => handleMouseEnter(val.title)}
             onMouseLeave={handleMouseLeave}
           >
-            <img src={val.thumbnail} alt="thumbnail" id="containerimg" />
+            <img
+              src={val.thumbnail}
+              alt="thumbnail"
+              id="containerimg"
+              onClick={() => moviepagefun(val.title)}
+            />
             <img
               src="https://i.pinimg.com/564x/47/48/64/474864b12b9e8e557fd88fb12c0ba0d5.jpg"
               id="videobtn"
